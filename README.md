@@ -7,6 +7,10 @@ A simple free text search engine service.
 1. index - given a string, tokenize it and store it along with its tokens
 2. search - given a string, tokenize it and use a similarity function to rank how similar it is to previously indexed strings
 
+## Notes
+1. This is a very basic implementation, where searching is likely not to scale well
+2. Moreover, as the store becomes larger it may become impossible to store it in-memory. This basic implementation does not address this issue
+
 ## Implemented tokenizers
 1. WhitespaceTokenizer
 2. CharacterTokenizer

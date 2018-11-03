@@ -27,10 +27,8 @@ public class FreeTextSearch {
 			request.queryParams().stream().forEach(input -> searchService.index(input.trim()));
 			return "";
 		});
-		post("/search", (request, response) -> {
-			return request.queryParams().stream().map(input -> searchService.search(input.trim()))
-					.collect(Collectors.toList());
-		}, new JsonTransformer());
+		post("/search", (request, response) -> request.queryParams().stream()
+		.map(input -> searchService.search(input.trim())).collect(Collectors.toList()), new JsonTransformer());
 	}
 
 	private static void enableCors() {
